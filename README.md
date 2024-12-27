@@ -37,41 +37,62 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
-FULL SUBRACTOR
-![WhatsApp Image 2024-11-26 at 10 50 49_ea04f8d1](https://github.com/user-attachments/assets/70a803b8-8b8d-4ce6-9d57-9e08b6e2a2d4)
 FULL ADDER
-![WhatsApp Image 2024-11-26 at 10 50 52_63312402](https://github.com/user-attachments/assets/365c4857-c8f9-4907-a9fa-f9a54637816d)
 
+![398612828-62b8ca6a-67b3-475f-8bc8-831acae86172](https://github.com/user-attachments/assets/c2fc296a-e3c4-400e-915a-11fca78526bf)
+
+FULL SUBTRACTOR
+
+![398612851-ffe9d0fb-6729-4553-b3ea-ab1951b2bbdf](https://github.com/user-attachments/assets/0f58e346-c30a-472e-8642-3322f730a2b4)
 
 **Procedure**
-1. Type the program in Quartus software.
- 2. Compile and run the program.
- 3. Generate the RTL schematic and save the logic diagram.
-4. Create nodes for inputs and outputs to generate the timing diagram.
- 5. For different input combinations generate the timing diagram.
+
+Type the program in Quartus software.
+
+Compile and run the program.
+
+Generate the RTL schematic and save the logic diagram.
+
+Create nodes for inputs and outputs to generate the timing diagram.
+
+For different input combinations generate the timing diagram.
+
 **Program:**
-```
-module exp4 (df, bo, a, b, bin);
- output df;
- output bo;
- input a;
- input b;
- input bin;
- wire w1,w2,w3;
- assign w1=a^b;
- assign w2=(~a&b); 
- assign w3=(~w1&bin);
- assign df=w1^bin;
- assign bo=w2|w3;
- endmodule
-```
+
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.*/ 
+Developed by:Kishorekumar S
+RegisterNumber:24900228
+~~~
+i)FULL ADDER
+module fa(a,b,cin,sum,carry);
+input a,b,cin;
+output sum,carry;
+assign sum=( (a ^ b)^cin);
+assign carry= ( (a & b)| ( cin &(a ^ b )));
+endmodule
+~~~
+~~~
+ii)FULL SUBTRACTOR
+module fs(a,b,bin,difference,borrow);
+input a,b,bin;
+output difference,borrow;
+assign difference= ( (a ^ b)^bin);
+assign borrow= ( ( ~a & b)| ( bin & (~(a ^ b ))));
+endmodule
+~~~
 
 **RTL Schematic**
-![image](https://github.com/user-attachments/assets/86a3d5e7-5558-4b96-8bf3-083086aee8d7)
-
+FULL ADDER
+![398612429-815e9ef7-9ad6-4573-9d0e-e0c45545419f](https://github.com/user-attachments/assets/cbc4845d-6148-438d-b3eb-dfcb45ed7768)
+FULL SUBTRACTOR
+![398612464-e89bb1fa-a5a8-42f5-af72-03fa362c2a00](https://github.com/user-attachments/assets/5502d8cf-cebc-4b3b-ae9b-9fe4aff505e6)
 
 **Output Timing Waveform**
-![image](https://github.com/user-attachments/assets/4dd4bb36-be00-4f4f-9c77-eb94b876e87f)
+FULL ADDER
+![398612556-444b5c95-a8e3-4dbc-bf2b-cbbb19e04ff8](https://github.com/user-attachments/assets/f81c7379-151e-45d5-8317-8b1357af2049)
+FULL SUBTRACTOR
+![398612568-3c2d0071-45cc-44b9-9a65-aa9236be44a5](https://github.com/user-attachments/assets/11a5f2ab-4328-43f6-ab5f-5828f14a0215)
+
 
 **Result:**
 
